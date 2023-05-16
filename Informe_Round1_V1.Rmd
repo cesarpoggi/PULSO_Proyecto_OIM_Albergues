@@ -1,0 +1,89 @@
+---
+title: "OIM Albergues R1"
+subtitle: "7 Encuestas - 2 en Mórrope y 5 en Íllimo"
+date: "`r format(Sys.Date(), '%d de Mayo de %Y')`"
+output: 
+  officedown::rdocx_document:
+    reference_docx: !expr system.file('informe_pulso_plantilla.docx', package = 'pulso')
+    tables:
+      style: Table
+      layout: autofit
+      width: 1.0
+      align: center
+      topcaption: true
+      caption: 
+        style: Table Caption
+        pre: "Tabla "
+        sep: ": "
+        tnd: 0
+        tns: '-'
+        fp_text: !expr officer::fp_text_lite(bold = TRUE)
+    plots:
+      style: Normal
+      align: center
+      topcaption: true
+      caption: 
+        style: Image Caption
+        pre: "Gráfico "
+        sep: ": "
+        tnd: 0
+        tns: '-'
+        fp_text: !expr officer::fp_text_lite(bold = TRUE)
+    page_size:
+      width: 8.3
+      height: 11.7
+      orient: "portrait"
+    page_margins:
+      bottom: 0.984252
+      top: 0.984252
+      right: 1.1811
+      left: 1.1811
+      header: 0.5
+      footer: 0.5
+      gutter: 0
+    reference_num: true
+knit: (
+  function(inputFile, encoding) {
+    rmarkdown::render(
+      input = inputFile,
+      encoding = encoding,
+      output_file = glue::glue("Informe OIM Albergues R1", format(Sys.Date(), '%d.%m.%y'),".docx" )
+      )
+    }
+  )
+---
+
+
+```{r, include=FALSE}
+#Limpieza
+
+
+```
+
+## Detalles de Alojamiento / Área de Asentamiento
+
+```{r}
+
+```
+
+## Personas con vulnerabilidades especiales
+
+## Movilidad
+
+## Alojamiento y Artículos no Alimentarios (NFI)
+
+## Agua, Saneamiento e Higiene (WASH)
+
+## Alimentación  y Nutrición
+
+## Salud
+
+## Educación
+
+## Medios de Subsistencia
+
+## Protección de niños, niñas, adolescentes, mujeres y personas con alguna vulnerabilidad
+
+## Participación y Comunicación
+
+

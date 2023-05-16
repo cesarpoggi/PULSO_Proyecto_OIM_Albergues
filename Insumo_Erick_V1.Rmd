@@ -1,0 +1,45 @@
+---
+title: "Insumo Erick"
+output: html_document
+---
+
+```{r}
+library(gtsummary)
+library(survey)
+```
+
+
+## Tabla Estratificada
+```{r}
+dessin5<- svydesign(id = ~1, #no clusters #El 1 puede ser cambiado por 0
+                      data = panSUBTIPOS, #cambia el nombre de la variable
+                      weight = ~FACTOR07) #cambia el nombre de la variable
+
+datoE <- 
+  dessin5 %>% #Se cambia el "dessin5" que es un objeto del paquete survey
+  tbl_strata(
+    strata = DomEstr, #Se cambia "DomEstr" que es una variable chr de cruce (mayor jerarquía)
+    .tbl_fun = 
+      ~ .x %>% 
+      tbl_svysummary(
+        by = P601B4, #Se cambia "P601B4" que es una variable chr de cruce (menor jerarquía)
+        include = c(I601B2),#Variable numérica a la cual se le aplicarán los estadisticos esp. abajo
+        statistic = list(all_continuous() ~ "{mean} ({sd})"), #"{mean} ({sd})" son estadístico que se cambiarán
+        digits = list(all_continuous() ~ c(2, 2)), missing = "no"))# tanto lo que sigue despues del c como el "no" del missing cambiarán
+datoE
+```
+
+## Tabla no Estratificada
+```{r}
+dessin3<- svydesign(id = ~1, #no clusters #El 1 puede ser cambiado por 0
+                      data = panSUBTIPOS, #cambia el nombre de la variable
+                      weight = ~FACTOR07) #cambia el nombre de la variable
+
+
+datoC = tbl_svysummary(data= dessin3, by= P601A, #Cambia el "dessin3" que es objeto y el "P601A" que es variable de cruce
+               include = c(I601B2, I601D2, I601Z2), #Variables numéricas a la cual se le aplicarán los estadisticos esp.abajo
+               statistic = list(all_continuous() ~ "{mean} ({sd})"), #"{mean} ({sd})" son estadístico que se cambiarán
+               digits = list(all_continuous() ~ c(2, 2)), missing = "no")# tanto lo que sigue despues del c como el "no" del missing cambiarán
+datoC
+```
+

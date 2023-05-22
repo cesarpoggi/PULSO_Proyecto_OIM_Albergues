@@ -1,0 +1,49 @@
+---
+title: "OIM Albergues R1"
+subtitle: "7 Encuestas - 2 en Mórrope y 5 en Íllimo"
+date: "`r format(Sys.Date(), '%d de Mayo de %Y')`"
+output: html_document
+---
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(vtable)
+library(haven)
+data(mtcars)
+
+Base100 = read_sav("https://www.dropbox.com/s/40at06kcr718iqv/Enaho01-2021-100res.sav?dl=1")
+Base100<-as.data.frame(Base100)
+Base100$ESTRATO<-as.factor(Base100$ESTRATO)
+```
+
+
+## Detalles de Alojamiento / Área de Asentamiento (Tabla Summary Statistics)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+st(Base100, vars = c('ESTRATO'))
+```
+
+## Personas con vulnerabilidades especiales (Tabla Summary Statistics)
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+st(mtcars, vars = c('disp', 'hp','drat'))
+```
+
+## Movilidad
+
+## Alojamiento y Artículos no Alimentarios (NFI)
+
+## Agua, Saneamiento e Higiene (WASH)
+
+## Alimentación  y Nutrición
+
+## Salud
+
+## Educación
+
+## Medios de Subsistencia
+
+## Protección de niños, niñas, adolescentes, mujeres y personas con alguna vulnerabilidad
+
+## Participación y Comunicación
+
+

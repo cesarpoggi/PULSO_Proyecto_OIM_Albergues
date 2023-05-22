@@ -47,26 +47,25 @@ knit: (
     rmarkdown::render(
       input = inputFile,
       encoding = encoding,
-      output_file = glue::glue("Informe OIM Albergues R1", format(Sys.Date(), '%d.%m.%y'),".docx" )
+      output_file = glue::glue("Prueba 1 - Tablas", format(Sys.Date(), '%d.%m.%y'),".docx" )
       )
     }
   )
 ---
 
 
-```{r, include=FALSE}
-#Limpieza
-
-
-```
-
-## Detalles de Alojamiento / Área de Asentamiento
+## Detalles de Alojamiento / Área de Asentamiento (Tabla PULSO)
 
 ```{r}
 
 ```
 
-## Personas con vulnerabilidades especiales
+## Personas con vulnerabilidades especiales (Tabla Summary Statistics)
+
+```{r}
+
+```
+
 
 ## Movilidad
 
